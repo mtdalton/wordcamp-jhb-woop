@@ -1,6 +1,7 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
+!web/app/plugins/story-creator
 web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
@@ -17,3 +18,6 @@ web/.htaccess
 
 # Composer
 /vendor
+
+# IDE
+/.idea

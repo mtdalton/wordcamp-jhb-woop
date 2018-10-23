@@ -1,91 +1,67 @@
-# [Bedrock](https://roots.io/bedrock/)
-[![Packagist](https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square)](https://packagist.org/packages/roots/bedrock)
-[![Build Status](https://img.shields.io/travis/roots/bedrock.svg?style=flat-square)](https://travis-ci.org/roots/bedrock)
+# Wordcamp JHB 2018 - Wordpress OOP
 
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
+## Introduction
 
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+We're excited to go through this workshop with you, where we will be looking at how to
+create Wordpress plugins that use Object Oriented Programming principles.
 
-## Features
-
-* Better folder structure
-* Dependency management with [Composer](http://getcomposer.org)
-* Easy WordPress configuration with environment specific files
-* Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-* Autoloader for mu-plugins (use regular plugins as mu-plugins)
-* Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
-
-Use [Trellis](https://github.com/roots/trellis) for additional features:
-
-* Easy development environments with [Vagrant](http://www.vagrantup.com/)
-* Easy server provisioning with [Ansible](http://www.ansible.com/) (Ubuntu 16.04, PHP 7.1, MariaDB)
-* One-command deploys
-
-See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
+## Preparing for the Workshop
+Attendees who arrive prepared will get the most out of the workshop. 
+Before you attend the workshop, there are a few activities to complete.
+This project is based on the [Bedrock Wordpress Boilerplate](https://roots.io/bedrock/).
+If you are stuck with something regarding how the project is laid out or getting it up and 
+running, please refer to the [Bedrock Documentation](https://roots.io/bedrock/docs/installing-bedrock/).
 
 ## Requirements
 
 * PHP >= 5.6
-* Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+* Composer - [Install](https://getcomposer.org/doc/00-intro.md)
 
-## Installation
+## Local PHP Dev Environment
 
-1. Create a new project in a new folder for your project:
+To be able to develop and run a Wordpress site on your computer, you'll need to have a local 
+dev environment installed on your computer. You use software like MAMP or XAMPP (which creates a local 
+server environment for you) or you can use a virtual machine to run your site, like a vagrant box like Homestead or VVV.
 
-  `composer create-project roots/bedrock your-project-folder-name`
+If you're new to PHP development or haven't used a PHP development environment before, I would suggest MAMP or XAMPP.
+These are the easiest to setup and get running. However, you're welcome to use any dev environment or virtual machine that
+you're comfortable with.
 
-2. Update environment variables in `.env`  file:
-  * `DB_NAME` - Database name
-  * `DB_USER` - Database user
-  * `DB_PASSWORD` - Database password
-  * `DB_HOST` - Database host
-  * `WP_ENV` - Set to environment (`development`, `staging`, `production`)
-  * `WP_HOME` - Full URL to WordPress home (http://example.com)
-  * `WP_SITEURL` - Full URL to WordPress including subdirectory (http://example.com/wp)
-  * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+Suggested Software:
+* XAMPP (Windows, Linux, MacOS) - [Install](https://www.apachefriends.org/index.html)
+* MAMP (Windows, MacOS) - [Install](https://www.mamp.info/en/)
+* Homestead (Linux, MacOS) - [Install](https://laravel.com/docs/5.7/homestead#installation-and-setup)
+* VVV (Windows, Linux, MacOS) - [Install](https://make.wordpress.org/core/handbook/tutorials/installing-a-local-server/installing-vvv/)
 
-  If you want to automatically generate the security keys (assuming you have wp-cli installed locally) you can use the very handy [wp-cli-dotenv-command][wp-cli-dotenv]:
+## Setup
 
-      wp package install aaemnnosttv/wp-cli-dotenv-command
+1. Clone (or download) this project into a folder that is accessible by your PHP Dev Environment.
 
-      wp dotenv salts regenerate
+    `git clone https://github.com/mtdalton/wordcamp-jhb-woop.git`
+  
+2. Run `composer install` in the folder that you cloned/downloaded.
 
-  Or, you can cut and paste from the [Roots WordPress Salt Generator][roots-wp-salt].
+3. Create a database. You may call it anything you like, but for this workshop, we will be calling it
+`wordcamp_oop`.
 
-3. Add theme(s) in `web/app/themes` as you would for a normal WordPress site.
+4. Update environment variables in `.env`  file:
+    * `DB_NAME` - Database name
+    * `DB_USER` - Database user
+    * `DB_PASSWORD` - Database password
+    * `DB_HOST` - Database host
+    * `WP_ENV` - Set to environment (`development`, `staging`, `production`)
+    * `WP_HOME` - Full URL to WordPress home (http://example.com)
+    * `WP_SITEURL` - Full URL to WordPress including subdirectory (http://example.com/wp)
+    * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
 
-4. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
+    To get the security keys, you can cut and paste them from the [Roots WordPress Salt Generator][roots-wp-salt].
 
-5. Access WP admin at `http://example.com/wp/wp-admin`
+5. Go to `http://{your-site-url-here}/wp` to install the sie. It will take you through the usual Wordpress installation process.
 
-## Deploys
+6. Once you're done, you can access the WP admin at `http://{your-site-url-here}/wp/wp-admin`
 
-There are two methods to deploy Bedrock sites out of the box:
-
-* [Trellis](https://github.com/roots/trellis)
-* [bedrock-capistrano](https://github.com/roots/bedrock-capistrano)
-
-Any other deployment method can be used as well with one requirement:
-
-`composer install` must be run as part of the deploy process.
-
-## Documentation
-
-Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
-
-## Contributing
-
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
+## Finally
+If you are really stuck or need some guidance, you are welcome to email me at [matt@mattadorstarfish.com](mailto:matt@mattadorstarfish.com) or 
+contact me on the WP South Africa Slack channel (@mattthestarfish).
 
 [roots-wp-salt]:https://roots.io/salts.html
-[wp-cli-dotenv]:https://github.com/aaemnnosttv/wp-cli-dotenv-command
