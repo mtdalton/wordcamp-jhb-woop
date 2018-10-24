@@ -13,6 +13,9 @@
  * @subpackage Story_Creator/includes
  */
 
+use app\postTypes\CharacterPostType;
+use app\postTypes\StoryPostType;
+
 /**
  * The core plugin class.
  *
@@ -79,6 +82,7 @@ class Story_Creator {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+        add_action('init', array($this, 'init'));
 	}
 
 	/**
@@ -123,7 +127,6 @@ class Story_Creator {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-story-creator-public.php';
 
 		$this->loader = new Story_Creator_Loader();
-
 	}
 
 	/**
@@ -183,6 +186,15 @@ class Story_Creator {
 	public function run() {
 		$this->loader->run();
 	}
+
+    /**
+     *
+     */
+	public function init()
+    {
+        $storyPostType = new StoryPostType();
+        $characterPostType = new CharacterPostType();
+    }
 
 	/**
 	 * The name of the plugin used to uniquely identify it within the context of

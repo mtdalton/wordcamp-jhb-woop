@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "07b349338c6b5e0d9691214cde9d2b00",
+    "content-hash": "fcad95223a47e15158740cb10669e239",
     "packages": [
         {
             "name": "composer/installers",
@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flickerleap/woop.git",
-                "reference": "3787092b51ede25169d10f74777414eef4a77726"
+                "reference": "bfe8a1957e93372d7992a3c6cbc6ed72345998fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flickerleap/woop/zipball/3787092b51ede25169d10f74777414eef4a77726",
-                "reference": "3787092b51ede25169d10f74777414eef4a77726",
+                "url": "https://api.github.com/repos/flickerleap/woop/zipball/bfe8a1957e93372d7992a3c6cbc6ed72345998fd",
+                "reference": "bfe8a1957e93372d7992a3c6cbc6ed72345998fd",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "source": "https://github.com/flickerleap/woop/tree/master",
                 "issues": "https://github.com/flickerleap/woop/issues"
             },
-            "time": "2018-10-23T16:56:08+00:00"
+            "time": "2018-10-24 20:39:26"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -738,6 +738,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "flickerleap/woop": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
