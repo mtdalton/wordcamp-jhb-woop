@@ -34,6 +34,7 @@ class CharacterPostType extends PostType
     {
         return [
             new FieldConfig('name', 'Name', 'text', 'text'),
+            new FieldConfig('gender', 'Gender', 'text', 'text', false, true)
         ];
     }
 
