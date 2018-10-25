@@ -60,6 +60,12 @@ Suggested Software:
 
 6. Once you're done, you can access the WP admin at `http://{your-site-url-here}/wp/wp-admin`
 
+## Extra Resources
+- Great article explaining OOP in an easy to understand manner: [OOP](https://medium.freecodecamp.org/object-oriented-programming-concepts-21bb035f7260)
+- The repository of WOOP, the in-development framework shown during the workshop:
+    [WOOP](https://github.com/flickerleap/woop). (The documentation is non-existent right now but we will be actively working on it 
+    and the framework during the next few months).
+
 ## Finally
 If you are really stuck or need some guidance, you are welcome to email me at [matt@mattadorstarfish.com](mailto:matt@mattadorstarfish.com) or 
 contact me on the WP South Africa Slack channel (@mattthestarfish).
